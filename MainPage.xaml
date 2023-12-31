@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUISqliteDemo.MainPage"
+             Title="Add Funds">
+
+
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout Padding="10" FlexLayout.Basis="400" BackgroundColor="Beige">
+            <Entry x:Name="DepositAmount" Placeholder="Amount" />
+            <Entry x:Name="CardNumber" Placeholder="Card Number" />
+            <Entry x:Name="CardName" Placeholder="Name" />
+
+
+            <Button x:Name="AddButton" Text="Add Funds" Clicked="AddButtonClicked" />
+        </VerticalStackLayout>
+
+        <ListView x:Name="listView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listview_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding CardNumber}" />
+                            <Label Text="{Binding CardName}" />
+                            <Label Text="{Binding ExpDate}" />
+
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+</ContentPage>
+
